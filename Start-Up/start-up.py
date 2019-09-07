@@ -13,13 +13,13 @@ class MyWindow(Gtk.ApplicationWindow):
         self.set_position(Gtk.WindowPosition.CENTER)
         self.set_icon_from_file("/blue/assets/logo.png")
 
-        motd = Gtk.Label()
-        motd.set_markup("<big><big><b>Welcome to BlueOS!</b></big></big>")
+        welcome = Gtk.Label()
+        welcome.set_markup("<big><big><b>Welcome to BlueOS!</b></big></big>")
 
         info = Gtk.Label()
-        info.set_markup("This message will only show up the first time you enter the OS. \n"
+        info.set_markup("This message will only show up the first time you boot the OS. \n"
                         "(Unless of course.... Bugs.....) \n"
-                        "Do you want to start a quick guide? (Not implemented...)")
+                        "Do you want to start a quick guide? (Not yet implemented implemented...)")
         info.set_line_wrap(True)
         info.set_justify(Gtk.Justification.CENTER)
 
@@ -48,7 +48,7 @@ class MyWindow(Gtk.ApplicationWindow):
         box = Gtk.Box(spacing=10, orientation=1)
         box.pack_start(Gtk.Label(), True, True, 5)
         box.pack_start(logo, False, True, 5)
-        box.pack_start(motd, False, True, 5)
+        box.pack_start(welcome, False, True, 5)
         box.pack_start(webpage, False, True, 5)
         box.pack_start(info, False, True, 5)
 
@@ -58,14 +58,15 @@ class MyWindow(Gtk.ApplicationWindow):
         buttons.pack_start(button_info, True, True, 5)
         buttons.pack_start(button_exit, True, True, 5)
         buttons.pack_start(Gtk.Label(), True, True, 5)
-        
+
 
         self.add(box)
+
     def do_guide(self, button):
         # Initialize guide!
-        sys.exit("Normal Close-Down")
+        sys.exit("Guide-Mode")
     def do_exit(self, button):
-        sys.exit("Normal Close-Down")
+        sys.exit("Close-Down")
 
 class MyApplication(Gtk.Application):
 

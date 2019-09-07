@@ -13,12 +13,29 @@ class MyWindow(Gtk.ApplicationWindow):
         self.set_position(Gtk.WindowPosition.CENTER)
         self.set_icon_from_file("/blue/assets/logo.png")
 
-        main = Gtk.Box()
-        
-        header = Gtk.Label()
-        header.set_markup("<big><big>What would you like to do?</big></big>")
+        main = Gtk.Box(orientation=1)
+        main.pack_start(Gtk.Label(), False, False, 1)
 
-        main.pack_start(header, True, True, 5)
+        header = Gtk.Label()
+        user = os.getlogin()
+        header.set_markup("<b><big><big>Welcome, what would you like to do " + user + "?</big></big></b>")
+        main.pack_start(header, False, False, 5)
+
+
+        help_section = Gtk.Box(orientation=0)
+
+        help_label = Gtk.Label()
+        help_label.set_markup("Read the online Documentation?")
+
+        help_page = Gtk.LinkButton(uri="https://blueos.burnyllama.tk")
+        help_page.set_label("Official Webpage")
+
+        help_section.pack_start(Gtk.Label(), True, False, 10)
+        help_section.pack_start(help_label, False, False, 5)
+        help_section.pack_start(help_page, False, False, 5)
+        help_section.pack_start(Gtk.Label(), True, False, 10)
+
+        main.pack_start(help_section, False, False, 5)
 
         self.add(main)
 
