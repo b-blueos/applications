@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=BlueOS Manager
+Comment=BlueOS Manager - Settings, Information, News
+GenericName=BlueOS Manager
+Exec=sh /blue/apps/Manager/manager
+Icon=/blue/assets/logo.png
+Type=Application
+Terminal=false
+StartupWMClass=BlueOS Manager
+Categories=GNOME;GTK;System;
+
